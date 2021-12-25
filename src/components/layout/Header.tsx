@@ -101,8 +101,8 @@ const Header = () => {
                   Help
                 </MenuButton>
                 <MenuList
-                  bg={useColorModeValue("white", "neutral.100")}
-                  borderColor={useColorModeValue("neutral.400", "neutral.400")}
+                  bg={useColorModeValue("white", "warmGray.900")}
+                  borderColor={useColorModeValue("gray.800", "neutral.400")}
                 >
                   <Link href="/client" passHref>
                     <MenuItem
