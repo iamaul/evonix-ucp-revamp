@@ -113,7 +113,7 @@ const Home = ({
             <Section>
               <Divider orientation="horizontal" mb={5} />
               <VStack align="start" spacing={4}>
-                <Heading size="xl">To the moon, 🚀</Heading>
+                <Heading size="xl">We&apos;re growing, 🚀</Heading>
                 <Text fontSize={["md", null, "sm"]} align="justify">
                   EvoniX is growing quickly. We&apos;re dedicated to serving and
                   improving the best experience of gaming community in
