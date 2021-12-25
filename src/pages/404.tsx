@@ -1,52 +1,60 @@
 import {
-  Box,
-  Button,
   Heading,
   Image,
+  Center,
+  Button,
+  VStack,
+  Box,
+  useColorModeValue,
   Text,
-  Link as ChakraLink,
-  useColorMode,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
-import MotionBox from "components/motion/Box";
+import Container from "@/components/common/Container";
+import MotionBox from "@/components/motion/Box";
 
 const Page404 = () => {
-  const { colorMode } = useColorMode();
-
   return (
     <>
-      <MotionBox
-        animate={{ y: 20 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
-        width={["100%", "70%", "60%", "60%"]}
-        margin="0 auto"
-      >
-        <Image
-          src="/404 Error-pana.svg"
-          alt="Error 404 not found Illustration"
-        />
-      </MotionBox>
-      <Text textAlign="center" fontSize="xs">
-        <ChakraLink href="https://stories.freepik.com/web" isExternal>
-          Illustration by Freepik Stories
-        </ChakraLink>
-      </Text>
+      <Container>
+        <Center>
+          <MotionBox
+            animate={{ y: 20 }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              repeatType: "reverse",
+            }}
+            width={["100%", "70%", "60%", "60%"]}
+            margin="0 auto"
+          >
+            <Image
+              src="/static/images/404.jpeg"
+              alt="page-404-not-found"
+              rounded="md"
+              shadow="lg"
+            />
+          </MotionBox>
 
-      <Box marginY={4}>
-        <Heading textAlign="center">Page not Found.</Heading>
-
-        <Box textAlign="center" marginTop={4}>
-          <Text>It&apos;s Okay!</Text>
-          <Link href="/" passHref>
-            <Button
-              backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
-            >
-              Let&apos;s Head Back
-            </Button>
-          </Link>
-        </Box>
-      </Box>
+          <VStack>
+            <Heading size="xl">404</Heading>
+            <Box textAlign="center">
+              <Text fontSize={["sm", null, "sm"]}>
+                Ah shit, here we go again
+              </Text>
+            </Box>
+            <Link href="/" passHref>
+              <Button
+                size="sm"
+                colorScheme="red.300"
+                backgroundColor={useColorModeValue("red.700", "red.300")}
+              >
+                Back
+              </Button>
+            </Link>
+          </VStack>
+        </Center>
+      </Container>
     </>
   );
 };

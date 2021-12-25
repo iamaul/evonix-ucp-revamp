@@ -1,8 +1,29 @@
 import { DeepPartial, Theme } from "@chakra-ui/react";
 
-const fonts: DeepPartial<Theme["fonts"]> = {
-  body: "Lexend, sans-serif",
+const overridenFonts: DeepPartial<Theme["fonts"]> = {
+  body: "Poppins, sans-serif",
   heading: "Lexend, serif",
+};
+
+const overridenFontSizes: DeepPartial<Theme["fontSizes"]> = {
+  xs: "0.75rem",
+  sm: "0.875rem",
+  md: "1rem",
+  lg: "1.125rem",
+  xl: "1.25rem",
+  "2xl": "1.5rem",
+  "3xl": "1.875rem",
+  "4xl": "2.25rem",
+  "5xl": "3rem",
+  "6xl": "3.75rem",
+  "7xl": "4.5rem",
+  "8xl": "6rem",
+  "9xl": "8rem",
+};
+
+const fonts = {
+  ...overridenFonts,
+  ...overridenFontSizes,
 };
 
 export default fonts;

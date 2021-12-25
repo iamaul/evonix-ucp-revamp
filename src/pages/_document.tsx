@@ -9,9 +9,9 @@ import Document, {
 } from "next/document";
 import * as React from "react";
 
-import createEmotionCache from "styles/createEmotionCache";
+import createEmotionCache from "@/styles/createEmotionCache";
 
-const APP_NAME = "nextarter-chakra";
+const APP_NAME = "evonix-ucp";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
