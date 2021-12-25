@@ -115,8 +115,8 @@ const Home = ({
               <VStack align="start" spacing={4}>
                 <Heading size="xl">To the moon, 🚀</Heading>
                 <Text fontSize={["md", null, "sm"]} align="justify">
-                  EvoniX is growing quickly. We are dedicated to keep serving
-                  and improving the best experience of gaming community in
+                  EvoniX is growing quickly. We&apos;re dedicated to serving and
+                  improving the best experience of gaming community in
                   Indonesia.
                 </Text>
                 <SimpleGrid columns={[2, 4]} spacing={4}>
