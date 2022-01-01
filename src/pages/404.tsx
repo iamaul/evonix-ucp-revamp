@@ -20,25 +20,26 @@ const Page404 = () => {
       <PageTransition>
         <Container>
           <Center>
-            <MotionBox
-              animate={{ y: 20 }}
-              transition={{
-                repeat: Infinity,
-                duration: 2,
-                repeatType: "reverse",
-              }}
-              width={["100%", "80%", "68%", "68%"]}
-              margin="0 auto"
-            >
-              <Image
-                src="/static/images/404.jpeg"
-                alt="page-404-not-found"
-                rounded="md"
-                shadow="lg"
-              />
-            </MotionBox>
-
             <VStack>
+              <MotionBox
+                animate={{ y: 20 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  repeatType: "reverse",
+                }}
+                width={["100%", "80%", "68%", "68%"]}
+                margin="0 auto"
+                marginBottom={5}
+              >
+                <Image
+                  src="/static/images/404.jpeg"
+                  alt="page-404-not-found"
+                  rounded="md"
+                  shadow="lg"
+                />
+              </MotionBox>
+
               <Heading size="xl">404</Heading>
               <Box textAlign="center">
                 <Text fontSize={["sm", null, "sm"]}>
