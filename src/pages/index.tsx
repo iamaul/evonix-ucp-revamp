@@ -23,6 +23,7 @@ import { Stat } from "@/components/common/stats/Stat";
 import { StatLabel } from "@/components/common/stats/StatLabel";
 import { StatNumber } from "@/components/common/stats/StatNumber";
 // eslint-disable-next-line import/extensions
+import RecentPosts from "@/components/posts/recent";
 import stats from "@/data/stats.json";
 import { StatsEntity } from "@/models/Stats";
 // eslint-disable-next-line import/extensions
@@ -133,8 +134,8 @@ const Home = ({
             <Section>
               <Divider orientation="horizontal" mb={5} />
               <VStack align="start" spacing={4}>
-                <Heading size="xl">Gallery</Heading>
-                <Text>{"<Ingame screenshots here>"}</Text>
+                <Heading size="xl">Recent Posts</Heading>
+                <RecentPosts />
               </VStack>
             </Section>
           </VStack>
