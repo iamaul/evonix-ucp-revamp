@@ -1,5 +1,5 @@
-import { NewsHeadlineResponse } from "@/types/news-headline";
+import { NewsResponse } from "@/types/news-response";
 
 export type RecentPostsProps = {
-  newsHeadlineFallbackData?: NewsHeadlineResponse;
+  newsHeadlineFallbackData?: NewsResponse;
 };

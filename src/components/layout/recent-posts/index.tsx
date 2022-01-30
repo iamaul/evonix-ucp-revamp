@@ -68,7 +68,7 @@ const RecentPostsCard = ({ newsHeadline }: RecentPostsProps) => {
                 <Text fontWeight="bold" fontSize="sm" noOfLines={2}>
                   {data.title}
                 </Text>
-                <Tag size="sm" colorScheme="teal">
+                <Tag size="sm" colorScheme="gray">
                   <Moment unix format="ll">
                     {data.created_at}
                   </Moment>

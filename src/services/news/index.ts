@@ -1,4 +1,4 @@
-import { NewsHeadlineResponse } from "@/types/news-headline";
+import { NewsHeadlineResponse } from "@/types/news-response";
 import { apiGet, useApiSWR } from "@/utils/swr-api";
 
 const NEWS_PATH = "/api/v1/news";

@@ -9,9 +9,7 @@ import {
   AspectRatio,
   Grid,
   Divider,
-  SimpleGrid,
 } from "@chakra-ui/react";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { FaFacebook, FaTwitter, FaDiscord, FaInstagram } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import ReactPlayer from "react-player/youtube";
@@ -19,14 +17,8 @@ import ReactPlayer from "react-player/youtube";
 import PageTransition from "@/components/common/PageTransitions";
 import Section from "@/components/common/Section";
 // eslint-disable-next-line import/extensions
-import { Stat } from "@/components/common/stats/Stat";
-import { StatLabel } from "@/components/common/stats/StatLabel";
-import { StatNumber } from "@/components/common/stats/StatNumber";
-// eslint-disable-next-line import/extensions
 import RecentPosts from "@/components/posts/recent";
-// eslint-disable-next-line import/extensions
-import stats from "@/data/stats.json";
-import { StatsEntity } from "@/models/Stats";
+import Stats from "@/components/stats";
 // eslint-disable-next-line import/extensions
 import siteConfig from "~/site.config";
 
@@ -37,9 +29,7 @@ const HOME_SOCIAL_BUTTONS: [string, string, IconType, string][] = [
   ["Twitter", siteConfig.socials.Twitter, FaTwitter, "twitter"],
 ];
 
-const Home = ({
-  dataStats,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = () => {
   return (
     <>
       <Box>
@@ -121,14 +111,7 @@ const Home = ({
                   improving the best experience of gaming community in
                   Indonesia.
                 </Text>
-                <SimpleGrid columns={[2, 4]} spacing={4}>
-                  {dataStats.map((data: StatsEntity) => (
-                    <Stat key={data.stat_name}>
-                      <StatLabel>{data.stat_name}</StatLabel>
-                      <StatNumber>{data.count}</StatNumber>
-                    </Stat>
-                  ))}
-                </SimpleGrid>
+                <Stats />
               </VStack>
             </Section>
 
@@ -144,16 +127,6 @@ const Home = ({
       </Box>
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const statsData: StatsEntity[] = stats;
-
-  return {
-    props: {
-      dataStats: statsData,
-    },
-  };
 };
 
 export default Home;

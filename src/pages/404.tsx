@@ -9,12 +9,20 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import React from "react";
+import useSound from "use-sound";
 
 import Container from "@/components/common/Container";
 import PageTransition from "@/components/common/PageTransitions";
 import MotionBox from "@/components/motion/Box";
 
 const Page404 = () => {
+  const [playSound] = useSound("/static/sounds/here-we-go-again.mp3");
+
+  React.useEffect(() => {
+    playSound();
+  }, [playSound]);
+
   return (
     <>
       <PageTransition>
