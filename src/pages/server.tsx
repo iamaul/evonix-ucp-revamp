@@ -12,16 +12,25 @@ import { ServerInfoProps } from "@/components/server/types";
 import { getServerInfo, useServerInfo } from "@/services/server";
 
 const Server = ({ serverFallbackData }: ServerInfoProps) => {
-  const { data: server, isLoading } = useServerInfo(serverFallbackData);
+  const {
+    data: server,
+    isLoading,
+    isError,
+  } = useServerInfo(serverFallbackData);
 
+  const [error, setError] = React.useState<boolean>(false);
   const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
 
   if (isLoading) {
     <Spinner />;
   }
 
+  if (isError) {
+    setError(true);
+  }
+
   React.useEffect(() => {
-    if (!server) {
+    if (error) {
       playSound();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -53,9 +62,9 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
             >
               <Image
                 src={
-                  server
-                    ? "/static/images/server-online.svg"
-                    : "/static/images/server-offline.svg"
+                  error
+                    ? "/static/images/server-offline.svg"
+                    : "/static/images/server-online.svg"
                 }
                 alt="server"
                 rounded="md"
@@ -66,17 +75,17 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
               <Text fontSize="lg">
                 {
                   // eslint-disable-next-line no-nested-ternary
-                  server ? (server.passworded ? `✅ 🔐` : `✅`) : `😭`
+                  error ? `😭` : server?.passworded ? `✅ 🔐` : `✅`
                 }
               </Text>
               <Text fontSize={["sm", null, "sm"]}>
                 {
                   // eslint-disable-next-line no-nested-ternary
-                  server
-                    ? server.passworded
-                      ? `Server is operating normally but it's locked`
-                      : `Server is operating normally, yasss!`
-                    : "Service disruption, huft~"
+                  error
+                    ? "Service disruption, huft~"
+                    : server?.passworded
+                    ? `Server is operating normally but it's locked`
+                    : `Server is operating normally, yasss!`
                 }
               </Text>
             </Box>
