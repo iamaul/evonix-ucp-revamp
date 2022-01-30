@@ -78,7 +78,11 @@ const RecentPostsCard = ({ newsHeadline }: RecentPostsProps) => {
                   </Tag>
                 </HStack>
 
-                <Text fontSize="sm" color={textColor}>
+                <Text
+                  fontSize={["md", null, "sm"]}
+                  align="justify"
+                  color={textColor}
+                >
                   <Truncate lines={2} ellipsis={<span>...</span>}>
                     {parse(data.content)}
                   </Truncate>
