@@ -23,7 +23,7 @@ const ServerSeo = ({
     <>
       <NextSeo
         title={`${hostname} - EvoniX - User Control Panel`}
-        description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com now! Current version: ${gamemode}`}
+        description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`}
         canonical={`samp://${address}`}
         openGraph={{
           type: "article",
@@ -32,7 +32,7 @@ const ServerSeo = ({
           },
           url: `samp://${address}`,
           title: hostname,
-          description: `Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com now! Current version: ${gamemode}`,
+          description: `Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`,
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SITE_URL}/static/images/icons.png`,
@@ -47,9 +47,9 @@ const ServerSeo = ({
         authorName="EvoniX Roleplay"
         dateModified={date}
         datePublished={date}
-        description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com now! Current version: ${gamemode}`}
+        description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`}
         images={[`${process.env.NEXT_PUBLIC_SITE_URL}/static/images/icons.png`]}
-        publisherLogo=""
+        publisherLogo={`${process.env.NEXT_PUBLIC_SITE_URL}/static/images/icons.png`}
         publisherName="EvoniX Roleplay"
         title={hostname ?? ""}
         url={`samp://${address}`}
