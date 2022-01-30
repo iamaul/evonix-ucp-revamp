@@ -1,5 +1,5 @@
-import { NewsHeadlineResponse } from "@/types/news-response";
+import { NewsResponse } from "@/types/news-response";
 
 export type RecentPostsProps = {
-  newsHeadline?: NewsHeadlineResponse;
+  newsHeadline?: NewsResponse;
 };
