@@ -1,7 +1,6 @@
 import { Heading, Image, VStack, Text, Box, Spinner } from "@chakra-ui/react";
 import { GetStaticProps } from "next";
-import React from "react";
-import useSound from "use-sound";
+// import useSound from "use-sound";
 
 import PageTransition from "@/components/common/PageTransitions";
 import Section from "@/components/common/Section";
@@ -14,18 +13,11 @@ import { getServerInfo, useServerInfo } from "@/services/server";
 const Server = ({ serverFallbackData }: ServerInfoProps) => {
   const { data: server, isLoading } = useServerInfo(serverFallbackData);
 
-  const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
+  //   const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
 
   if (isLoading) {
     <Spinner />;
   }
-
-  React.useEffect(() => {
-    if (!server) {
-      playSound();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playSound]);
 
   return (
     <>
