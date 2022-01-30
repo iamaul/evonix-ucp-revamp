@@ -14,9 +14,9 @@ import Image from "@/components/common/Image";
 import { RecentPostsProps } from "@/components/layout/recent-posts/types";
 
 const RecentPostsCard = ({ newsHeadline }: RecentPostsProps) => {
-  const bgColor = useColorModeValue("white", "neutralD.100");
-  const borderColor = useColorModeValue("neutral.400", "neutralD.400");
-  const textColor = useColorModeValue("neutral.200", "gray.900");
+  const bgColor = useColorModeValue("white", "neutral.100");
+  const borderColor = useColorModeValue("neutral.400", "neutral.400");
+  const textColor = useColorModeValue("neutral.200", "neutral.200");
 
   return (
     <>
