@@ -1,4 +1,14 @@
-import { Box, Divider, Heading, Spinner, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Heading,
+  Spinner,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import parse from "html-react-parser";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
@@ -53,6 +63,19 @@ const PostDetail = ({ newsDetailFallbackData }: PostDetailProps) => {
           />
           <article ref={target}>
             <VStack w="100%" align="left" spacing={6}>
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/posts">Posts</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem isCurrentPage>
+                  <BreadcrumbLink href="#">{data?.slug}</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
               <Box
                 mt={4}
                 rounded="lg"

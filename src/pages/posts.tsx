@@ -21,6 +21,9 @@ const Posts = ({ newsFallbackData }: PostsProps) => {
           <VStack w="100%" align="left" spacing={6}>
             <Box>
               <Heading size="xl">📄 Posts</Heading>
+              <Heading size="sm" fontWeight="thin">
+                All the latest posts you can find here!
+              </Heading>
             </Box>
             <PostList news={news} />
           </VStack>
