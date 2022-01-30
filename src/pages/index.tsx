@@ -24,6 +24,7 @@ import { StatLabel } from "@/components/common/stats/StatLabel";
 import { StatNumber } from "@/components/common/stats/StatNumber";
 // eslint-disable-next-line import/extensions
 import RecentPosts from "@/components/posts/recent";
+// eslint-disable-next-line import/extensions
 import stats from "@/data/stats.json";
 import { StatsEntity } from "@/models/Stats";
 // eslint-disable-next-line import/extensions
