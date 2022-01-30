@@ -6,12 +6,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import Moment from "react-moment";
 
-import { PostDetailProps, PostDetailParams } from "./types";
-
 import PageTransition from "@/components/common/PageTransitions";
 import ScrollProgress from "@/components/common/ScrollProgress";
 import Section from "@/components/common/Section";
 import PostSeo from "@/components/posts/PostSeo";
+import { PostDetailProps, PostDetailParams } from "@/components/posts/types";
 import { getNewsDetail, useNewsDetail } from "@/services/news";
 
 const PostDetail = ({ newsDetailFallbackData }: PostDetailProps) => {
