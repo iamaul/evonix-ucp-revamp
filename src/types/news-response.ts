@@ -1,6 +1,6 @@
 export type NewsResponse = Array<News>;
 
-type News = {
+export type News = {
   id: number;
   title: string;
   slug: string;

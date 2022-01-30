@@ -7,6 +7,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import parse from "html-react-parser";
+import Link from "next/link";
 import Moment from "react-moment";
 import Truncate from "react-truncate";
 
@@ -21,68 +22,71 @@ const RecentPostsCard = ({ newsHeadline }: RecentPostsProps) => {
   return (
     <>
       {newsHeadline?.map((data) => (
-        <HStack
-          key={data.id}
-          p={4}
-          bg={bgColor}
-          rounded="lg"
-          borderWidth="1px"
-          borderColor={borderColor}
-          w="100%"
-          h="100%"
-          textAlign="left"
-          align="start"
-          spacing={4}
-          transition="all 0.25s"
-          transition-timing-function="spring(1 100 10 10)"
-          _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-        >
-          <Box
+        <Link href={`/post/${data.slug}`} passHref>
+          <HStack
+            key={data.id}
+            p={4}
+            bg={bgColor}
             rounded="lg"
-            p={2}
-            position="relative"
-            overflow="hidden"
-            lineHeight={0}
-            boxShadow="inset 0 0 1px 1px rgba(0, 0, 0, 0.04)"
+            borderWidth="1px"
+            borderColor={borderColor}
+            w="100%"
+            h="100%"
+            textAlign="left"
+            cursor="pointer"
+            align="start"
+            spacing={4}
+            transition="all 0.25s"
+            transition-timing-function="spring(1 100 10 10)"
+            _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
           >
             <Box
-              position="absolute"
-              top={0}
-              bottom={0}
-              left={0}
-              right={0}
-              opacity={0.25}
-            />
-            <Image
-              src={data.image}
-              height={40}
-              width={40}
-              layout="fixed"
-              rounded="md"
-            />
-          </Box>
+              rounded="lg"
+              p={2}
+              position="relative"
+              overflow="hidden"
+              lineHeight={0}
+              boxShadow="inset 0 0 1px 1px rgba(0, 0, 0, 0.04)"
+            >
+              <Box
+                position="absolute"
+                top={0}
+                bottom={0}
+                left={0}
+                right={0}
+                opacity={0.25}
+              />
+              <Image
+                src={data.image}
+                height={40}
+                width={40}
+                layout="fixed"
+                rounded="md"
+              />
+            </Box>
 
-          <VStack align="start" justify="flex-start" spacing={1}>
-            <VStack spacing={0} align="start">
-              <HStack>
-                <Text fontWeight="bold" fontSize="sm" noOfLines={2}>
-                  {data.title}
+            <VStack align="start" justify="flex-start" spacing={1}>
+              <VStack spacing={0} align="start">
+                <HStack>
+                  <Text fontWeight="bold" fontSize="sm" noOfLines={2}>
+                    {data.title}
+                  </Text>
+                  <Tag size="sm" colorScheme="gray">
+                    <Moment unix format="ll">
+                      {data.created_at}
+                    </Moment>
+                  </Tag>
+                </HStack>
+
+                <Text fontSize="sm" color={textColor}>
+                  <Truncate lines={2} ellipsis={<span>...</span>}>
+                    {parse(data.content)}
+                  </Truncate>
                 </Text>
-                <Tag size="sm" colorScheme="gray">
-                  <Moment unix format="ll">
-                    {data.created_at}
-                  </Moment>
-                </Tag>
-              </HStack>
-
-              <Text fontSize="sm" color={textColor}>
-                <Truncate lines={2} ellipsis={<span>...</span>}>
-                  {parse(data.content)}
-                </Truncate>
-              </Text>
+              </VStack>
             </VStack>
-          </VStack>
-        </HStack>
+          </HStack>
+        </Link>
       ))}
     </>
   );
