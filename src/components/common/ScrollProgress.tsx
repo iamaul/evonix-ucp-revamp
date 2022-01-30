@@ -40,7 +40,7 @@ const ScrollProgress = ({ target }: any) => {
   return (
     <Box
       position="fixed"
-      bg={useColorModeValue("blue.500", "blue.200")}
+      bg={useColorModeValue("red.700", "red.300")}
       left={0}
       right={0}
       top={{ base: "auto", md: "16" }}
