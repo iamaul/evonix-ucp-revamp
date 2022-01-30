@@ -21,8 +21,8 @@ const PostList = ({ news }: PostListProps) => {
   return (
     <>
       {news?.map((data) => (
-        <Link href={`/post/${data.slug}`} passHref>
-          <Tooltip label="Read more" placement="auto-end">
+        <Tooltip label="Read more" placement="auto-start">
+          <Link href={`/post/${data.slug}`} passHref>
             <Stack
               w="100%"
               rounded="lg"
@@ -63,8 +63,8 @@ const PostList = ({ news }: PostListProps) => {
                 </VStack>
               </HStack>
             </Stack>
-          </Tooltip>
-        </Link>
+          </Link>
+        </Tooltip>
       ))}
     </>
   );
