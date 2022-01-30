@@ -12,11 +12,7 @@ import { ServerInfoProps } from "@/components/server/types";
 import { getServerInfo, useServerInfo } from "@/services/server";
 
 const Server = ({ serverFallbackData }: ServerInfoProps) => {
-  const {
-    data: server,
-    isLoading,
-    isError,
-  } = useServerInfo(serverFallbackData);
+  const { data: server, isLoading } = useServerInfo(serverFallbackData);
 
   const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
 
@@ -24,15 +20,12 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
     <Spinner />;
   }
 
-  if (isError) {
-    playSound();
-  }
-
   React.useEffect(() => {
     if (!server) {
       playSound();
     }
-  }, [playSound, server]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playSound]);
 
   return (
     <>
@@ -70,11 +63,21 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
               />
             </MotionBox>
             <Box textAlign="center">
-              <Text fontSize="lg">{server ? `✅` : `😭`}</Text>
+              <Text fontSize="lg">
+                {
+                  // eslint-disable-next-line no-nested-ternary
+                  server ? (server.passworded ? `✅ 🔐` : `✅`) : `😭`
+                }
+              </Text>
               <Text fontSize={["sm", null, "sm"]}>
-                {server
-                  ? "Server is operating normally, yasss!"
-                  : "Service disruption, huft~"}
+                {
+                  // eslint-disable-next-line no-nested-ternary
+                  server
+                    ? server.passworded
+                      ? `Server is operating normally but it's locked`
+                      : `Server is operating normally, yasss!`
+                    : "Service disruption, huft~"
+                }
               </Text>
             </Box>
             {server && (
@@ -85,6 +88,9 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
                     Total {server?.online} online players of{" "}
                     <b>{server?.maxplayers}</b>
                   </Heading>
+                  <Text fontSize="sm" alignItems="start" fontWeight="light">
+                    Current version: <u>{server?.gamemode}</u>
+                  </Text>
                 </Box>
                 <PlayerList server={server} />
               </>
