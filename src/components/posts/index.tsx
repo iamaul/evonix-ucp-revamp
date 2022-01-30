@@ -22,7 +22,7 @@ const PostList = ({ news }: PostListProps) => {
     <>
       {news?.map((data) => (
         <Link href={`/post/${data.slug}`} passHref>
-          <Tooltip label="Read more">
+          <Tooltip label="Read more" placement="auto-end">
             <Stack
               w="100%"
               rounded="lg"
