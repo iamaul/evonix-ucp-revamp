@@ -24,6 +24,7 @@ const ServerSeo = ({
         description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`}
         canonical={`samp://${address}`}
         openGraph={{
+          type: "article",
           url: `samp://${address}`,
           title: hostname,
           description: `Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`,
