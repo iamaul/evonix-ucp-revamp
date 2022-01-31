@@ -45,7 +45,7 @@ const MobileMenuToggle = ({ mobile }: MobileMenuToggleProps) => {
             <DrawerBody pb={4}>
               <VStack>
                 <MobileMenuItem href="/" label="Home" />
-                <MobileMenuItem href="/about" label="Server" />
+                <MobileMenuItem href="/server" label="Server" />
                 <MobileMenuItem href="/posts" label="Posts" />
                 <MobileMenuItem
                   href="/content-creator"
