@@ -23,12 +23,12 @@ const PlayerList = ({ server }: ServerProps) => {
         </Tr>
       </Thead>
       <Tbody>
-        {server?.players.map((data) => (
+        {server.players.map((data) => (
           <Tr>
-            <Td>{data?.id}</Td>
-            <Td>{data?.name}</Td>
-            <Td>{data?.ping}</Td>
-            <Td>{data?.score}</Td>
+            <Td>{data.id}</Td>
+            <Td>{data.name}</Td>
+            <Td>{data.ping}</Td>
+            <Td>{data.score}</Td>
           </Tr>
         ))}
       </Tbody>
