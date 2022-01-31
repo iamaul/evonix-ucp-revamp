@@ -44,7 +44,11 @@ const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
   }, [playSound]);
 
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <Box textAlign="center">
+        <Spinner size="lg" />
+      </Box>
+    );
   }
 
   return (
