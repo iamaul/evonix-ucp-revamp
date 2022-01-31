@@ -37,8 +37,8 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
   }
 
   return (
-    <>
-      <PageTransition>
+    <PageTransition>
+      <>
         <Section>
           <ServerSeo
             hostname={server?.hostname}
@@ -106,8 +106,8 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
             )}
           </VStack>
         </Section>
-      </PageTransition>
-    </>
+      </>
+    </PageTransition>
   );
 };
 
