@@ -12,18 +12,14 @@ import { ServerInfoProps } from "@/components/server/types";
 import { getServerInfo, useServerInfo } from "@/services/server";
 
 const Server = ({ serverFallbackData }: ServerInfoProps) => {
+  const [error, setError] = React.useState<boolean>(false);
+  const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
+
   const {
     data: server,
     isLoading,
     isError,
   } = useServerInfo(serverFallbackData);
-
-  const [error, setError] = React.useState<boolean>(false);
-  const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
-
-  if (isLoading) {
-    <Spinner />;
-  }
 
   if (isError) {
     setError(true);
@@ -35,6 +31,10 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playSound]);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
@@ -89,7 +89,7 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
                 }
               </Text>
             </Box>
-            {!error && server?.online && (
+            {!error && (
               <>
                 <Box>
                   <Heading size="xl">Server</Heading>

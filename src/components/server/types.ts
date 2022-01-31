@@ -5,5 +5,5 @@ export type ServerInfoProps = {
 };
 
 export type ServerProps = {
-  server: ServerResponse;
+  server?: ServerResponse;
 };

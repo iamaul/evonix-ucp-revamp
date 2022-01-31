@@ -37,17 +37,6 @@ const ServerSeo = ({
           ],
         }}
       />
-      {/* <ArticleJsonLd
-        authorName="EvoniX Roleplay"
-        dateModified={date}
-        datePublished={date}
-        description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`}
-        images={[`${process.env.NEXT_PUBLIC_SITE_URL}/static/images/icons.png`]}
-        publisherLogo={`${process.env.NEXT_PUBLIC_SITE_URL}/static/images/icons.png`}
-        publisherName="EvoniX Roleplay"
-        title={hostname ?? ""}
-        url={`samp://${address}`}
-      /> */}
     </>
   );
 };

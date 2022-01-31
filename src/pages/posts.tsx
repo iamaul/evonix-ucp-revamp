@@ -11,7 +11,7 @@ const Posts = ({ newsFallbackData }: PostsProps) => {
   const { data: news, isLoading } = useNewsList(newsFallbackData);
 
   if (isLoading) {
-    <Spinner />;
+    return <Spinner />;
   }
 
   return (
