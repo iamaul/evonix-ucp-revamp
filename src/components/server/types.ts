@@ -6,5 +6,4 @@ export type ServerInfoProps = {
 
 export type ServerProps = {
   server?: ServerResponse;
-  error: boolean;
 };
