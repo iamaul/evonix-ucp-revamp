@@ -1,4 +1,4 @@
-import { NextSeo, ArticleJsonLd } from "next-seo";
+import { NextSeo } from "next-seo";
 
 type ServerSeoProps = {
   hostname: string | undefined;
@@ -17,8 +17,6 @@ const ServerSeo = ({
   maxplayers,
   online,
 }: ServerSeoProps) => {
-  const date = new Date().toISOString();
-
   return (
     <>
       <NextSeo
@@ -26,10 +24,6 @@ const ServerSeo = ({
         description={`Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`}
         canonical={`samp://${address}`}
         openGraph={{
-          type: "article",
-          article: {
-            publishedTime: date,
-          },
           url: `samp://${address}`,
           title: hostname,
           description: `Total online players ${online} of ${maxplayers}. Map playing ${mapname}, feel the experience of our roleplay environment at ${address} or play.evonix-rp.com! Current version: ${gamemode}`,
@@ -43,7 +37,7 @@ const ServerSeo = ({
           ],
         }}
       />
-      <ArticleJsonLd
+      {/* <ArticleJsonLd
         authorName="EvoniX Roleplay"
         dateModified={date}
         datePublished={date}
@@ -53,7 +47,7 @@ const ServerSeo = ({
         publisherName="EvoniX Roleplay"
         title={hostname ?? ""}
         url={`samp://${address}`}
-      />
+      /> */}
     </>
   );
 };
