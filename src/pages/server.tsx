@@ -89,7 +89,7 @@ const Server = ({ serverFallbackData }: ServerInfoProps) => {
                 }
               </Text>
             </Box>
-            {server && (
+            {!error && (
               <>
                 <Box>
                   <Heading size="xl">Server</Heading>
