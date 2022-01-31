@@ -1,6 +1,4 @@
-export type ServerResponse = Server;
-
-export type Server = {
+export type ServerResponse = {
   address: string;
   gamemode: string;
   hostname: string;
