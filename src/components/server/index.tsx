@@ -4,7 +4,6 @@ import {
   VStack,
   Text,
   Box,
-  Spinner,
   Table,
   TableCaption,
   Tbody,
@@ -13,54 +12,14 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { GetStaticProps } from "next";
-import React from "react";
-import useSound from "use-sound";
+
+import { ServerProps } from "./types";
 
 import MotionBox from "@/components/motion/Box";
-import ServerSeo from "@/components/server/ServerSeo";
-import { ServerInfoProps } from "@/components/server/types";
-import { getServerInfo, useServerInfo } from "@/services/server";
 
-const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
-  const [error, setError] = React.useState<boolean>(false);
-  const [playSound] = useSound("/static/sounds/cj-falling-down.mp3");
-
-  const {
-    data: server,
-    isLoading,
-    isError,
-  } = useServerInfo(serverFallbackData);
-
-  if (isError) {
-    setError(true);
-  }
-
-  React.useEffect(() => {
-    if (error) {
-      playSound();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playSound]);
-
-  if (isLoading) {
-    return (
-      <Box textAlign="center">
-        <Spinner size="lg" />
-      </Box>
-    );
-  }
-
+const ServerInfo = ({ server, error }: ServerProps) => {
   return (
     <>
-      <ServerSeo
-        hostname={server?.hostname}
-        address={server?.address}
-        gamemode={server?.gamemode}
-        mapname={server?.rules.mapname}
-        maxplayers={server?.maxplayers}
-        online={server?.online}
-      />
       <VStack w="100%" align="left" spacing={6}>
         <MotionBox
           animate={{ y: 20 }}
@@ -140,17 +99,6 @@ const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
       </VStack>
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps<ServerInfoProps> = async () => {
-  const serverFallbackData = await getServerInfo();
-
-  return {
-    props: {
-      serverFallbackData,
-    },
-    revalidate: 60,
-  };
 };
 
 export default ServerInfo;
