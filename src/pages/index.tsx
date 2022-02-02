@@ -32,7 +32,7 @@ const HOME_SOCIAL_BUTTONS: [string, string, IconType, string][] = [
 const Home = () => {
   return (
     <>
-      <Box>
+      <Box mt={10}>
         <PageTransition>
           <VStack spacing={12}>
             <Section>

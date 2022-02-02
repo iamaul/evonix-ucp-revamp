@@ -62,7 +62,7 @@ const PostDetail = ({ newsDetailFallbackData }: PostDetailProps) => {
             createdAt={data?.created_at}
           />
           <article ref={target}>
-            <VStack w="100%" align="left" spacing={6}>
+            <VStack w="100%" align="left" spacing={6} mt={10}>
               <Breadcrumb>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>

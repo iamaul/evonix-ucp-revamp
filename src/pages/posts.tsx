@@ -19,7 +19,7 @@ const Posts = ({ newsFallbackData }: PostsProps) => {
       <>
         <Section>
           <VStack w="100%" align="left" spacing={6}>
-            <Box>
+            <Box mt={10}>
               <Heading size="xl">📄 Posts</Heading>
               <Heading size="sm" fontWeight="thin">
                 All the latest posts you can find here!

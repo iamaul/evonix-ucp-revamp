@@ -22,6 +22,7 @@ const PostList = ({ news }: PostListProps) => {
       {news?.map((data) => (
         <Link href={`/post/${data.slug}`} passHref>
           <Stack
+            key={data.slug}
             w="100%"
             rounded="lg"
             borderWidth="1px"

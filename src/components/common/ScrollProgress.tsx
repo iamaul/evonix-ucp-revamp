@@ -43,8 +43,8 @@ const ScrollProgress = ({ target }: any) => {
       bg={useColorModeValue("red.700", "red.300")}
       left={0}
       right={0}
-      top={{ base: "auto", md: "16" }}
-      bottom={{ base: "16", md: "auto" }}
+      top={{ base: "auto", md: "100" }}
+      bottom={{ base: "63", md: "auto" }}
       h="2px"
       transition="all 0.10s"
       transition-timing-function="spring(1 100 10 10)"

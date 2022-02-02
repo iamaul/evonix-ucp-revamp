@@ -89,14 +89,14 @@ const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
           <Text fontSize="lg">
             {
               // eslint-disable-next-line no-nested-ternary
-              error ? `😭` : server?.passworded ? `✅ 🔐` : `✅`
+              error ? `😢` : server?.passworded ? `✅ 🔐` : `✅`
             }
           </Text>
           <Text fontSize={["sm", null, "sm"]}>
             {
               // eslint-disable-next-line no-nested-ternary
               error
-                ? "Service disruption, huft~"
+                ? "Service disruption, sorry :("
                 : server?.passworded
                 ? `Server is operating normally but it's locked`
                 : `Server is operating normally, yasss!`
@@ -127,7 +127,7 @@ const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
               </Thead>
               <Tbody>
                 {server?.players.map((data) => (
-                  <Tr>
+                  <Tr key={data.id}>
                     <Td>{data.id}</Td>
                     <Td>{data.name}</Td>
                     <Td>{data.ping}</Td>
@@ -144,14 +144,19 @@ const ServerInfo = ({ serverFallbackData }: ServerInfoProps) => {
 };
 
 export const getStaticProps: GetStaticProps<ServerInfoProps> = async () => {
-  const serverFallbackData = await getServerInfo();
+  try {
+    const serverFallbackData = await getServerInfo();
 
-  return {
-    props: {
-      serverFallbackData,
-    },
-    revalidate: 60,
-  };
+    return {
+      props: {
+        serverFallbackData,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default ServerInfo;

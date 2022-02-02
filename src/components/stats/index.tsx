@@ -3,9 +3,9 @@ import type { GetStaticProps } from "next";
 
 import type { StatsProps } from "./types";
 
-import { Stat } from "@/components/common/stats/Stat";
-import { StatLabel } from "@/components/common/stats/StatLabel";
-import { StatNumber } from "@/components/common/stats/StatNumber";
+import { Stat } from "@/components/layout/stats/Stat";
+import { StatLabel } from "@/components/layout/stats/StatLabel";
+import { StatNumber } from "@/components/layout/stats/StatNumber";
 import {
   getCountUsers,
   getCountPlayerVehicles,
