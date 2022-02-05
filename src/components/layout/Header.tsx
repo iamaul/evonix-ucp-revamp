@@ -14,10 +14,7 @@ import {
   useMediaQuery,
   theme,
 } from "@chakra-ui/react";
-// eslint-disable-next-line import/no-duplicates
 import NextLink from "next/link";
-// eslint-disable-next-line import/no-duplicates
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
@@ -29,8 +26,6 @@ type NavLinkProps = {
   href: string;
   label?: string;
 };
-
-const topNavigationList = ["Sign In", "Sign Up"];
 
 const NavLink = ({ href, label, ...rest }: NavLinkProps) => {
   let isActive = false;
@@ -120,34 +115,45 @@ const Header = () => {
               </Text>
 
               <Flex as="nav" h="full">
-                {topNavigationList.map((navItem) => (
-                  <NextChakraLink
-                    key={navItem}
-                    href="/"
-                    display="flex"
-                    alignItems="center"
-                    px={4}
-                    py={0}
-                    h="full"
-                    textTransform="capitalize"
-                    _hover={{ textDecoration: "none" }}
-                  >
-                    {navItem}
-                  </NextChakraLink>
-                ))}
+                <NextChakraLink
+                  key="sign-in"
+                  href="/login"
+                  display="flex"
+                  alignItems="center"
+                  px={4}
+                  py={0}
+                  h="full"
+                  textTransform="capitalize"
+                  _hover={{ textDecoration: "none" }}
+                >
+                  Sign In
+                </NextChakraLink>
+                <NextChakraLink
+                  key="sign-up"
+                  href="/register"
+                  display="flex"
+                  alignItems="center"
+                  px={4}
+                  py={0}
+                  h="full"
+                  textTransform="capitalize"
+                  _hover={{ textDecoration: "none" }}
+                >
+                  Sign Up
+                </NextChakraLink>
               </Flex>
             </Flex>
           </Box>
           <VStack align="start" spacing={0}>
             <HStack justify="space-between" w="100%" h={16}>
-              <Link href="/" passHref>
+              <NextLink href="/" passHref>
                 <Avatar
                   name="logo-evonix"
                   size="sm"
                   src="/static/images/icons.png"
                   cursor="pointer"
                 />
-              </Link>
+              </NextLink>
               <HStack ml={-4} spacing={2}>
                 <NavLink href="/server" label="Server" />
                 <NavLink href="/posts" label="Posts" />
@@ -168,7 +174,7 @@ const Header = () => {
                     bg={useColorModeValue("white", "warmGray.900")}
                     borderColor={useColorModeValue("gray.800", "neutral.400")}
                   >
-                    <Link href="/client" passHref>
+                    <NextLink href="/client" passHref>
                       <MenuItem
                         _hover={{
                           // eslint-disable-next-line sonarjs/no-duplicate-string
@@ -181,8 +187,8 @@ const Header = () => {
                           </Text>
                         </HStack>
                       </MenuItem>
-                    </Link>
-                    <Link href="/faq" passHref>
+                    </NextLink>
+                    <NextLink href="/faq" passHref>
                       <MenuItem
                         _hover={{
                           bg: useColorModeValue("neutral.200", "neutral.200"),
@@ -192,7 +198,7 @@ const Header = () => {
                           <Text fontSize={["md", null, "sm"]}>F.A.Q</Text>
                         </HStack>
                       </MenuItem>
-                    </Link>
+                    </NextLink>
                   </MenuList>
                 </Menu>
               </HStack>

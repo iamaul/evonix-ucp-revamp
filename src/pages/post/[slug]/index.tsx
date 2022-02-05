@@ -19,6 +19,7 @@ import Moment from "react-moment";
 import PageTransition from "@/components/common/PageTransitions";
 import ScrollProgress from "@/components/common/ScrollProgress";
 import Section from "@/components/common/Section";
+import Layout from "@/components/layout";
 import PostSeo from "@/components/posts/PostSeo";
 import { PostDetailProps, PostDetailParams } from "@/components/posts/types";
 import { getNewsDetail, useNewsDetail } from "@/services/news";
@@ -50,8 +51,8 @@ const PostDetail = ({ newsDetailFallbackData }: PostDetailProps) => {
   }
 
   return (
-    <PageTransition>
-      <>
+    <Layout>
+      <PageTransition>
         <Section>
           <PostSeo
             url={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${data?.slug}`}
@@ -115,8 +116,8 @@ const PostDetail = ({ newsDetailFallbackData }: PostDetailProps) => {
           </article>
         </Section>
         <ScrollProgress target={target} />
-      </>
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   );
 };
 

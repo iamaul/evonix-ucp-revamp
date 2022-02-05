@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 
 import PageTransition from "@/components/common/PageTransitions";
 import Section from "@/components/common/Section";
+import Layout from "@/components/layout";
 import PostList from "@/components/posts";
 import { PostsProps } from "@/components/posts/types";
 import { getNewsList, useNewsList } from "@/services/news";
@@ -15,8 +16,8 @@ const Posts = ({ newsFallbackData }: PostsProps) => {
   }
 
   return (
-    <PageTransition>
-      <>
+    <Layout>
+      <PageTransition>
         <Section>
           <VStack w="100%" align="left" spacing={6}>
             <Box mt={10}>
@@ -28,8 +29,8 @@ const Posts = ({ newsFallbackData }: PostsProps) => {
             <PostList news={news} />
           </VStack>
         </Section>
-      </>
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   );
 };
 

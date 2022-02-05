@@ -1,12 +1,12 @@
 import {
   Heading,
   Image,
-  Center,
   Button,
   VStack,
   Box,
   useColorModeValue,
   Text,
+  Flex,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -27,7 +27,7 @@ const Page404 = () => {
     <>
       <PageTransition>
         <Container>
-          <Center>
+          <Flex minH="100vh" align="center" justify="center">
             <VStack>
               <MotionBox
                 animate={{ y: 20 }}
@@ -49,7 +49,7 @@ const Page404 = () => {
               </MotionBox>
 
               <Heading size="xl">404</Heading>
-              <Box textAlign="center">
+              <Box align="center" justify="center">
                 <Text fontSize={["sm", null, "sm"]}>
                   Ah shit, here we go again
                 </Text>
@@ -64,7 +64,7 @@ const Page404 = () => {
                 </Button>
               </Link>
             </VStack>
-          </Center>
+          </Flex>
         </Container>
       </PageTransition>
     </>

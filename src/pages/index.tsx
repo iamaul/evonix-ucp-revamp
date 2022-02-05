@@ -17,6 +17,7 @@ import ReactPlayer from "react-player/youtube";
 import PageTransition from "@/components/common/PageTransitions";
 import Section from "@/components/common/Section";
 // eslint-disable-next-line import/extensions
+import Layout from "@/components/layout";
 import RecentPosts from "@/components/posts/recent";
 import Stats from "@/components/stats";
 // eslint-disable-next-line import/extensions
@@ -31,7 +32,7 @@ const HOME_SOCIAL_BUTTONS: [string, string, IconType, string][] = [
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <Box mt={10}>
         <PageTransition>
           <VStack spacing={12}>
@@ -125,7 +126,7 @@ const Home = () => {
           </VStack>
         </PageTransition>
       </Box>
-    </>
+    </Layout>
   );
 };
 
