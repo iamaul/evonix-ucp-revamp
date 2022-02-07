@@ -28,7 +28,7 @@ const INITIAL_VALUES: LoginFormValueType = {
 };
 
 const Login = () => {
-  // const [formBody, setFormBody] = React.useState<LoginFormValueType>();
+  const [formBody, setFormBody] = React.useState<LoginFormValueType>();
   const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 
   const {
@@ -43,8 +43,7 @@ const Login = () => {
     initialValues: INITIAL_VALUES,
     onSubmit: (formValues: LoginFormValueType) => {
       setShouldFetch(false);
-      // setFormBody(formValues);
-      console.log(formValues);
+      setFormBody(formValues);
       setShouldFetch(true);
     },
   });
@@ -64,6 +63,11 @@ const Login = () => {
   }
 
   const signInButtonDisabled = formikSubmitButtonDisabled(dirty, errors);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(formBody);
+  }, [formBody]);
 
   return (
     <Flex

@@ -78,6 +78,7 @@ const Register = () => {
     validationSchema,
     onSubmit: (formValues: RegisterFormValueType) => {
       setShouldFetch(false);
+      // eslint-disable-next-line no-console
       console.log(formValues);
       setShouldFetch(true);
     },
