@@ -59,7 +59,6 @@ const Register = () => {
   const recaptchaRef = React.useRef<any>(null);
 
   const handleRecaptcha = () => {
-    console.log(recaptchaRef);
     if (recaptchaRef) {
       setRecaptcha(recaptchaRef?.current?.getValue());
     }
@@ -79,6 +78,7 @@ const Register = () => {
     validationSchema,
     onSubmit: (formValues: RegisterFormValueType) => {
       setShouldFetch(false);
+      console.log(formValues);
       setShouldFetch(true);
     },
   });

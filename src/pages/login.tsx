@@ -28,7 +28,7 @@ const INITIAL_VALUES: LoginFormValueType = {
 };
 
 const Login = () => {
-  const [formBody, setFormBody] = React.useState<LoginFormValueType>();
+  // const [formBody, setFormBody] = React.useState<LoginFormValueType>();
   const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 
   const {
@@ -43,7 +43,8 @@ const Login = () => {
     initialValues: INITIAL_VALUES,
     onSubmit: (formValues: LoginFormValueType) => {
       setShouldFetch(false);
-      setFormBody(formValues);
+      // setFormBody(formValues);
+      console.log(formValues);
       setShouldFetch(true);
     },
   });
