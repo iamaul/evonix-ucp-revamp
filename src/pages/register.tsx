@@ -27,7 +27,7 @@ const validationSchema = yup.object({
     .string()
     .min(6, "Password must be at least 6 minimum characters")
     .matches(
-      /^[0-9A-Za-z]*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?][0-9a-zA-Z]*$/,
+      /^[0-9A-Za-z]*[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?][0-9a-zA-Z]*$/,
       "Password must be at least have one special character"
     )
     .required("Password is required"),
