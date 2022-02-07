@@ -21,6 +21,7 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import Container from "@/components/common/Container";
 import NextChakraLink from "@/components/common/NextChakraLink";
 import ThemeToggle from "@/components/layout/ThemeToggle";
+import { ROUTES } from "@/config/env";
 
 type NavLinkProps = {
   href: string;
@@ -117,7 +118,7 @@ const Header = () => {
               <Flex as="nav" h="full">
                 <NextChakraLink
                   key="sign-in"
-                  href="/login"
+                  href={ROUTES.login.path}
                   display="flex"
                   alignItems="center"
                   px={4}
@@ -130,7 +131,7 @@ const Header = () => {
                 </NextChakraLink>
                 <NextChakraLink
                   key="sign-up"
-                  href="/register"
+                  href={ROUTES.register.path}
                   display="flex"
                   alignItems="center"
                   px={4}
@@ -146,7 +147,7 @@ const Header = () => {
           </Box>
           <VStack align="start" spacing={0}>
             <HStack justify="space-between" w="100%" h={16}>
-              <NextLink href="/" passHref>
+              <NextLink href={ROUTES.home.path} passHref>
                 <Avatar
                   name="logo-evonix"
                   size="sm"
@@ -155,9 +156,12 @@ const Header = () => {
                 />
               </NextLink>
               <HStack ml={-4} spacing={2}>
-                <NavLink href="/server" label="Server" />
-                <NavLink href="/posts" label="Posts" />
-                <NavLink href="/content-creator" label="Content Creator" />
+                <NavLink href={ROUTES.server.path} label="Server" />
+                <NavLink href={ROUTES.posts.path} label="Posts" />
+                <NavLink
+                  href={ROUTES.contentCreator.path}
+                  label="Content Creator"
+                />
                 <Menu>
                   <MenuButton
                     as={Button}
@@ -174,7 +178,7 @@ const Header = () => {
                     bg={useColorModeValue("white", "warmGray.900")}
                     borderColor={useColorModeValue("gray.800", "neutral.400")}
                   >
-                    <NextLink href="/client" passHref>
+                    <NextLink href={ROUTES.help.client.path} passHref>
                       <MenuItem
                         _hover={{
                           // eslint-disable-next-line sonarjs/no-duplicate-string
@@ -188,7 +192,7 @@ const Header = () => {
                         </HStack>
                       </MenuItem>
                     </NextLink>
-                    <NextLink href="/faq" passHref>
+                    <NextLink href={ROUTES.help.faq.path} passHref>
                       <MenuItem
                         _hover={{
                           bg: useColorModeValue("neutral.200", "neutral.200"),

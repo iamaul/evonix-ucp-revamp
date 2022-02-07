@@ -17,6 +17,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import MobileMenuButton from "./MobileMenuButton";
 import MobileMenuItem from "./MobileMenuItem";
 
+import { ROUTES } from "@/config/env";
+
 type MobileMenuToggleProps = {
   mobile?: VoidFunction | undefined;
 };
@@ -44,16 +46,19 @@ const MobileMenuToggle = ({ mobile }: MobileMenuToggleProps) => {
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody pb={4}>
               <VStack>
-                <MobileMenuItem href="/" label="Home" />
-                <MobileMenuItem href="/server" label="Server" />
-                <MobileMenuItem href="/posts" label="Posts" />
+                <MobileMenuItem href={ROUTES.home.path} label="Home" />
+                <MobileMenuItem href={ROUTES.server.path} label="Server" />
+                <MobileMenuItem href={ROUTES.posts.path} label="Posts" />
                 <MobileMenuItem
-                  href="/content-creator"
+                  href={ROUTES.contentCreator.path}
                   label="Content Creator"
                 />
                 <SimpleGrid columns={2} spacing={2} w="100%">
-                  <MobileMenuItem href="/client" label="Client Version" />
-                  <MobileMenuItem href="/faq" label="F.A.Q" />
+                  <MobileMenuItem
+                    href={ROUTES.help.client.path}
+                    label="Client Version"
+                  />
+                  <MobileMenuItem href={ROUTES.help.faq.path} label="F.A.Q" />
                 </SimpleGrid>
               </VStack>
             </DrawerBody>
